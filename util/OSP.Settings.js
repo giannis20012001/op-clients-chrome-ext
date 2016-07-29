@@ -1198,7 +1198,7 @@ var ospSettingsConfig = {
                 }
             },
             write:{
-                recommended:"Do not connect to Twitter"
+                recommended:"Not connected"
             }
         },
         manage_wechat:{
@@ -1227,7 +1227,7 @@ var ospSettingsConfig = {
                 }
             },
             write:{
-                recommended:"Make your public profile visible to no one"
+                recommended:"off"
             }
         },
         see_connections_list:{
@@ -1258,11 +1258,11 @@ var ospSettingsConfig = {
         },
         profile_viewers_feature:{
             read:{
-                name: "Choose whether or not this feature appears when people view your profile",
+                name: "Control the feature \"Viewers of this profile also viewed\"",
                 url: "https://www.linkedin.com/psettings/browse-map",
                 jquery_selector:{
-                    element:"input[id='option-browse-map']",
-                    valueType:"checkbox"
+                    element:"#setting-browse-map .state",
+                    valueType:"inner"
                 }
             },
             write:{
@@ -1274,25 +1274,56 @@ var ospSettingsConfig = {
                 name: "Sharing profile edits",
                 url: "https://www.linkedin.com/psettings/activity-broadcast",
                 jquery_selector:{
-                    element:"input[id='option-broadcast']",
-                    valueType:"checkbox"
+                    element:"#setting-activity-broadcast .state",
+                    valueType:"inner"
                 }
             },
             write:{
-                recommended:"Do not allow your network to be notified of your profile changes"
+                recommended:"No"
             }
         },
+        profile_viewing_options:{
+            read:{
+                name: "Control what others see when you have viewed their profile",
+                url: "https://www.linkedin.com/psettings/profile-visibility",
+                jquery_selector:{
+                    element:"#setting-profile-visibility .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"Private mode"
+            }
+        },
+        share_you_news:{
+            read:{
+                name: "Allow or disallow your connections and followers to know when you are mentioned in the news.",
+                url: "https://www.linkedin.com/psettings/news-mention-broadcast",
+                jquery_selector:{
+                    element:"#setting-news-mention-broadcast .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"No"
+            }
+        },
+        control_followers:{
+            read:{
+                name: "Control who can follow you and see your public updates.",
+                url: "https://www.linkedin.com/psettings/allow-follow",
+                jquery_selector:{
+                    element:"#setting-allow-follow .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"Connections"
+            }
+        },
+        //TODO: Add management capabilities for Blocking list. (https://www.linkedin.com/psettings/member-blocking)
+        //TODO: Add management capabilities for Unfollowed list. (https://www.linkedin.com/psettings/customize-stream)
 
-        /*{
-            name: "Profile viewing options",
-            url: "https://www.linkedin.com/psettings/profile-visibility",
-            jquery_selector:{
-                element:"input",
-                valueType:"radio"
-
-            }//return selected option value string
-
-        },*/
 
         suggest_you_email:{
             read:{
@@ -1307,6 +1338,7 @@ var ospSettingsConfig = {
                 recommended:"Nobody"
             }
         },
+
         suggest_you_phone:{
             read:{
                 name: "Suggesting you as a connection based on your phone number",
@@ -1359,19 +1391,6 @@ var ospSettingsConfig = {
                 recommended:"false"
             }
         },
-        share_you_news:{
-            read:{
-                name: "Allow or disallow your connections and followers to know when you are mentioned in the news.",
-                url: "https://www.linkedin.com/psettings/news-mention-broadcast",
-                jquery_selector:{
-                    element:"input[id='option-news-mention']",
-                    valueType:"checkbox"
-                }
-            },
-            write:{
-                recommended:"false"
-            }
-        },
         broadcast_activity:{
             read:{
                 name: "Allow or disallow your activity broadcasts.",
@@ -1385,12 +1404,14 @@ var ospSettingsConfig = {
                 recommended:"false"
             }
         },
-        control_broadcast:{
+
+
+        control_profile_photo:{
             read:{
-                name: "Control who can see your activity broadcast.",
-                url: "https://www.linkedin.com/psettings/allow-follow",
+                name: "Control your profile photo and visibility.",
+                url: "https://www.linkedin.com/psettings/profile-photo-visibility",
                 jquery_selector:{
-                    element:"#setting-allow-follow .state",
+                    element:"#setting-profile-photo-visibility .state",
                     valueType:"inner"
                 }
             },
@@ -1409,34 +1430,6 @@ var ospSettingsConfig = {
          recommended:"Limit to your name and headline"
          }
          },*/
-
-
-        linkedin_control_followers:{
-            read:{
-                name: "Control who can follow your updates.",
-                url: "https://www.linkedin.com/psettings/allow-follow",
-                jquery_selector:{
-                    element:"option",
-                    valueType:"selected"
-                }
-            },
-            write:{
-                recommended:"Limit to your connections"
-            }
-        },
-        control_profile_photo:{
-            read:{
-                name: "Control your profile photo and visibility.",
-                url: "https://www.linkedin.com/psettings/profile-photo-visibility",
-                jquery_selector:{
-                    element:"#setting-profile-photo-visibility .state",
-                    valueType:"inner"
-                }
-            },
-            write:{
-                recommended:"Connections"
-            }
-        },
         /*control_also_viewed:{
          read:{
          name: "Control display of 'Viewers of this profile also viewed' box on your Profile page.",
