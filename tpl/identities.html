@@ -1,0 +1,38 @@
+<div>
+    <h3>Substitute Identities (SIDs)</h3>
+
+    <div id="identities_container">
+
+        <div class="table-responsive">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th width="75px">Default</th>
+                <th>SID</th>
+                <th style="width:100px; text-align:center">Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+
+            <tr>
+                <td></td>
+                <td class="td_text"><span><b>{{user.email}}</b></span></td>
+                <td class="actions">
+                </td>
+            </tr>
+
+
+            <tr  identity-row ng-repeat="identity in identities" identity="identity">
+            </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+    </div>
+
+    <button class="btn-primary" ng-click="add_new_sid()">Add New SID</button>
+    <div style="margin-top: 20px"><span>You currently have</span> {{identities.length}}/20 SIDs</div>
+</div>
+

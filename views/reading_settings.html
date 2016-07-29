@@ -1,0 +1,23 @@
+<!-- READING SETTINGS-->
+<div id="reading_settings_tab">
+    <div ng-controller="readSocialNetworkPrivacySettings" class="content_tab">
+
+
+        <div class="col-xs-3"> <!-- required for floating -->
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs tabs-left">
+                <li ng-repeat="osp in osps" ng-class="{active: isItemIncluded(osp.key)}"><a ui-sref="admin.privacy_settings({sn:osp.key})">{{osp.title}}</a></li>
+            </ul>
+        </div>
+
+
+        <div class="col-xs-9">
+            <div class="tab-content">
+                <div ui-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END READING SETTINGS-->

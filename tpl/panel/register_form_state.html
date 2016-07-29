@@ -1,0 +1,33 @@
+<div>
+    <div class="item_icon user_icon"></div>
+    <div class="user_area_register">
+        <form class="form-horizontal" role="form">
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="user_email">Your Email</label>
+                <input type="text" id="user_email"  ng-model="user.email" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="user_email">Username</label>
+                <input type="text" id="user_username"  ng-model="user.username" />
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="user_pass">Password</label>
+                <input type="password" id="user_pass"  ng-model="user.password"/>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-sm-4" for="user_pass">Repeat</label>
+                <input type="password" id="user_pass_repeat"  ng-model="user.repeat_password"/>
+            </div>
+
+            <div class="form-group form_submit user_actions">
+                <button ng-click = "register()" type="submit">Register</button>
+                <button ng-click = "cancel()" type="submit">Cancel</button>
+            </div>
+
+        </form>
+    </div>
+</div>

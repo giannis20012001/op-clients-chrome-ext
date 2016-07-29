@@ -1,0 +1,50 @@
+<div class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="close('Cancel')" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h3 class="modal-title">Add New Substitute Identity</h3>
+            </div>
+            <div class="modal-body">
+                <form name="addSidForm" class="clearfix">
+
+                    <div class="form-group col-lg-6">
+                        <label for="email">Alias:</label>
+                        <input type="text" class="form-control" id="email"  ng-model="identity.name" ng-change="refreshSID()" />
+                    </div>
+
+                    <div class="form-group col-lg-1 email_at_sign">
+                        <span>@</span>
+                    </div>
+
+                    <div class="form-group col-lg-5">
+                        <label for="domain">Domain:</label>
+                        <select class="form-control" id="domain" ng-model="identity.domain" ng-change="refreshSID()">
+                            <option ng-repeat="domain in domains.availableDomains" value="{{domain.name}}">{{domain.name}}</option>
+                        </select>
+                    </div>
+
+
+                    <div class="form-group col-lg-12">
+                        <label for="usr">Email:</label>
+                        <input type="text" class="form-control" id="usr" disabled ng-model="identity.email"/>
+                    </div>
+
+
+                    <div class="form-group col-lg-12">
+                    <button type="button" ng-click="generateIdentity()" class="btn btn-primary">Refresh</button>
+                    </div>
+                </form>
+            </div>
+
+
+
+            <div class="modal-footer">
+
+                <button type="button" ng-click="saveIdentity()" class="btn btn-primary" data-dismiss="modal">Save</button>
+                <button type="button" ng-click="close('Yes')" class="btn btn-primary" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<!-- PFB TAB-->
+<div id="pfb_tab" class="content_tab">
+
+
+    <div class="col-xs-3"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left"><!-- 'tabs-right' for right tabs -->
+            <li ui-sref-active="active"><a ui-sref="deals.availableOffers" >Available Offers</a></li>
+            <li ui-sref-active="active"><a ui-sref="deals.myDeals">My Deals</a></li>
+        </ul>
+    </div>
+
+
+    <div class="col-xs-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div ui-view></div>
+        </div>
+    </div>
+
+
+</div>
+<!-- END PFB TAB-->

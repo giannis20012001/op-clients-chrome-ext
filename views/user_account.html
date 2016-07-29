@@ -1,0 +1,21 @@
+<!-- ACCOUNT TAB -->
+<div id="account_tab" class="content_tab">
+
+    <div class="col-xs-3"> <!-- required for floating -->
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left">
+            <li ui-sref-active="active"><a ui-sref="account.personal-details" >Personal Details</a></li>
+            <li ui-sref-active="active"><a ui-sref="account.activity">Activity</a></li>
+            <li ui-sref-active="active"><a ui-sref="account.billing">Billing</a></li>
+        </ul>
+    </div>
+
+
+    <div class="col-xs-9">
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div ui-view></div>
+        </div>
+    </div>
+</div>
+<!-- END USER ACCOUNT-->

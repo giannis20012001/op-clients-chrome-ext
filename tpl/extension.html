@@ -1,0 +1,29 @@
+<div class="extension clearfix pp-{{extension.privacyPollutionColor}}" >
+
+        <div class="extension_icon" ng-class="{'no_icon':!extension.icon}" >
+            <img ng-class="extension.enabled?'active':'disabled'" ng-src="{{extension.icon.url}}" width="64px"/>
+            <span class="extension_name">{{extension.name}}</span>
+        </div>
+        <div class="extension_left_ctn">
+            <span>Description:</span>{{extension.description}}
+            <span>Version:</span>{{extension.version}}
+            <br/>
+            <span>Type:</span>{{extension.type}}
+            <div class="privacy_pollution"><span>Privacy pollution : {{extension.privacyPollution}}/10</span></div>
+        </div>
+
+        <div class="extension_actions">
+
+            <label class="extension_enabled_container">
+                <input type="checkbox" class="btn-primary" ng-checked="extension.enabled" ng-click="toggleEnabled()"/>
+            <span class="enable-checkbox-text">
+                <span class="enabled-text" ng-if="extension.enabled == true" >Enabled</span>
+                <span class="enable-text" ng-if="extension.enabled == false" >Enable</span>
+            </span>
+            </label>
+
+            <button class="view_permissions" ng-class="{'hide_view_button': extension.permissions.length<1}" ng-click="view_permissions()"></button>
+            <button class="extension_uninstall" ng-if="extension.mayDisable" ng-click="uninstall('user preference')"></button>
+        </div>
+
+</div>

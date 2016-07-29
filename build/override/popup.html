@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<!--
+  - This file is part of Adblock Plus <https://adblockplus.org/>,
+  - Copyright (C) 2006-2015 Eyeo GmbH
+  -
+  - Adblock Plus is free software: you can redistribute it and/or modify
+  - it under the terms of the GNU General Public License version 3 as
+  - published by the Free Software Foundation.
+  -
+  - Adblock Plus is distributed in the hope that it will be useful,
+  - but WITHOUT ANY WARRANTY; without even the implied warranty of
+  - MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  - GNU General Public License for more details.
+  -
+  - You should have received a copy of the GNU General Public License
+  - along with Adblock Plus.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<html ng-app="op-popup">
+<head>
+    <link rel="stylesheet" type="text/css" href="skin/popup.css">
+    <link rel="stylesheet" type="text/css" href="operando/assets/bootstrap/css/bootstrap.min.css">
+    <script type="text/javascript" src="operando/utils/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="operando/assets/bootstrap/js/bootstrap.js"></script>
+    <script src="ext/popup.js"></script>
+    <script src="i18n.js"></script>
+    <script src="popup.js"></script>
+    <script src="notification.js"></script>
+    <script src="stats.js"></script>
+    <script src="operando/popup.js"></script>
+    <script src="operando/utils/angular.min.js"></script>
+    <script src="operando/utils/angular-cookies.js"></script>
+    <script type="text/javascript" src="operando/apps/OperandoCore.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/apps/OperandoPopup.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/swarms.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/services/messenger-service.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/controllers/menuController.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/controllers/loginController.js" charset="utf-8"></script>
+    <script type="text/javascript" src="operando/directives/popup_menu.js" charset="utf-8"></script>
+
+</head>
+<!-- Set tabindex to work around Chromium issue 304532 -->
+<!-- Set overflow to hidden in order to prevent Safari showing scrollbars while loading -->
+<body tabindex="1" style="overflow: hidden;">
+
+<header>
+    <img id="logo" src="icons/detailed/abp-64.png" srcset="operando/assets/images/icons/operando.png">
+</header>
+
+<div class="operando_wrapper" ng-controller="menuCtrl" ng-switch="popupAreaState">
+
+
+        <ul ng-controller="loginCtrl" ng-switch-when="normalState">
+            <li id="login_area" ng-switch="loginAreaState">
+
+                <div ng-if="info.status">
+                    <div class="panel panel-{{info.status=='error'?'danger':info.status}}">
+                        <div class="panel-heading">{{info.message}}</div>
+                    </div>
+                </div>
+
+                <div ng-switch-when="loggedout">
+                    <div ng-include src="'operando/tpl/panel/logout_state.html'"></div>
+                </div>
+
+                <div ng-switch-when="login_form">
+                    <div ng-include src="'operando/tpl/panel/login_form_state.html'"></div>
+                </div>
+
+                <div ng-switch-when="loggedin">
+                    <div ng-include src="'operando/tpl/panel/loggedin_state.html'"></div>
+                </div>
+
+                <div ng-switch-when="register_form">
+                    <div ng-include src="'operando/tpl/panel/register_form_state.html'"></div>
+                </div>
+            </li>
+
+            <menu-item icon-class="privacy_issues_icon" menu-label="Notifications" tab-to-open = "home/notifications" ng-show="isAuthenticated"></menu-item >
+            <menu-item icon-class="privacy_settings_icon" menu-label="Preferences" tab-to-open = "preferences/facebook" ng-show="isAuthenticated"></menu-item>
+            <menu-item icon-class="dashboard_icon" menu-label="Dashboard" tab-to-open = "home" ng-show="isAuthenticated"></menu-item>
+
+            <li id="operando_abp">
+                <div class="item_icon abp_icon"></div>
+                <a id="abp_expand" href="#">AdBlock Plus </a>
+
+                <div id="expand_abp"></div>
+
+                <div id="wrapperabp" class="right_content">
+                    <div id="notification" hidden>
+                        <div id="notification-content">
+                            <h1>
+                                <span id="notification-title"></span>
+                                <span id="notification-close"></span>
+                            </h1>
+
+                            <p id="notification-message"></p>
+                        </div>
+                        <ul id="notification-close-content">
+                            <li id="notification-hide"
+                                class="i18n_overlay_notification_closing_button_hide"></li>
+                            <li id="notification-optout"
+                                class="i18n_overlay_notification_closing_button_optout"></li>
+                        </ul>
+                    </div>
+
+                    <div id="clickhide-instructions" class="i18n_clickhide_instructions"></div>
+
+                    <ul id="menu">
+                        <li id="enabled" class="menu-item" role="button">
+                            <div class="icon"></div>
+                            <span id="enabled-yes" class="i18n_enabled_for_site"></span>
+                            <span id="enabled-no" class="i18n_disabled_for_site"></span>
+                        </li>
+
+                        <li id="clickhide" class="menu-item" role="button">
+                            <div class="icon"></div>
+                            <span class="i18n_easy_create_filter"></span>
+                        </li>
+                        <li id="clickhide-cancel" class="menu-item" role="button">
+                            <div class="icon"></div>
+                            <span class="i18n_cancel"></span>
+                        </li>
+
+                        <li id="stats-container">
+                            <div class="menu-item collapse" data-option="show_statsinpopup"
+                                 data-collapsable="stats-container"
+                                 role="button">
+                                <div class="icon"></div>
+                                <span class="i18n_stats_title"></span>
+
+                                <div class="collapse-icon-placeholder safari-inline-block"></div>
+                                <div class="collapse-icon"></div>
+                            </div>
+                            <ul id="stats" class="collapsable">
+                                <li>
+                                    <div>
+                                        <div id="stats-page"></div>
+                                        <div id="stats-total"></div>
+                                    </div>
+
+                                    <div id="share">
+                                        <span class="i18n_stats_share_title"></span>
+
+                                        <div id="share-box">
+                                            <div data-social="facebook"></div>
+                                            <div data-social="twitter"></div>
+                                            <div data-social="gplus"></div>
+                                        </div>
+                                    </div>
+                                </li>
+
+                                <li class="operando_hide">
+                                    <div id="show-iconnumber" class="checkbox" role="checkbox" aria-checked></div>
+                                    <label for="show-iconnumber" class="i18n_stats_show_iconnumber"></label>
+                                </li>
+                            </ul>
+
+                        </li>
+                        <li id="options" role="button" class="menu-item">
+                            <div class="icon"></div>
+                            <span class="i18n_options_short"></span>
+                        </li>
+                    </ul>
+                </div>
+
+            </li>
+
+            <li id="about_operando" ng-click="aboutOperando()">
+
+                <div class="item_icon about_icon"></div>
+                <div class="right_content">
+                    <a href="#">About OPERANDO</a>
+                </div>
+            </li>
+
+        </ul>
+        <div ng-switch-when="aboutOperandoState" id="about_operando_ctn">
+            <div>
+                <p>
+                    The OPERANDO project will integrate and extend the state of the art to create a platform that will used by independent Privacy Service Providers (PSPs) to provide comprehensive user privacy enforcement in the form of a dedicated online service, called "Privacy Authority". The OPERANDO platform will support flexible and viable business models, including targeting of individual market segments such as public administration, social networks and Internet of Things
+                </p>
+                <p>
+                    Version: 0.2 (development)
+                </p>
+            </div>
+            <button ng-click="normalState()">Back</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>
+

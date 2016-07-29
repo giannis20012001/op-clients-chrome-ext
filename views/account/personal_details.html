@@ -1,0 +1,82 @@
+<div class="tab-pane active" id="personal_details" ng-controller="accountCtrl">
+
+
+    <h2>Personal Details</h2>
+
+    <div class="row">
+
+        <div class="col-lg-9">
+            <label>Email address (main identity)</label>
+
+            <div class="input-group">
+                <input type="email" class="form-control" ng-model="user.email"
+                       ng-disabled="emailIsEditMode == false">
+                                <span class="input-group-btn" ng-switch on="emailIsEditMode">
+                                    <button ng-click="changeEmailState()" class="btn btn-secondary" type="button"
+                                            ng-switch-when="false">Edit
+                                    </button>
+                                    <button ng-click="changeEmailState()" class="btn btn-secondary" type="button"
+                                            ng-switch-when="true">Save
+                                    </button>
+                                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-9" ng-switch on="passwordIsEditMode">
+
+            <div ng-switch-when="false">
+                <label>Password</label>
+
+                <div class="input-group">
+                    <input type="password" class="form-control" value="************" disabled>
+
+                                <span class="input-group-btn" ng-switch on="passwordIsEditMode">
+                                    <button ng-click="changePassword()" class="btn btn-secondary" type="button">Change
+                                    </button>
+                                </span>
+                </div>
+            </div>
+
+            <div ng-switch-when="true">
+                <div>
+                    <form>
+                        <fieldset class="form-group">
+                            <label>Change your password</label>
+                            <input type="password" class="form-control" placeholder="Current password">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="password" class="form-control"  placeholder="New password">
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input type="password" class="form-control"  placeholder="Repeat password">
+                        </fieldset>
+                    </form>
+                </div>
+                <div>
+                    <button ng-click="savePassword()" class="btn btn-secondary" type="button">Save
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-9">
+            <label>Phone number (for verification only, never disclosed to 3rd parties)</label>
+
+            <div class="input-group">
+                <input type="text" class="form-control" ng-disabled="phoneIsEditMode==false">
+                                <span class="input-group-btn" ng-switch on="phoneIsEditMode">
+                                        <button ng-switch-when="false" class="btn btn-secondary" type="button" ng-click="changePhoneState()">Change</button>
+                                        <button ng-switch-when="true" class="btn btn-secondary" type="button" ng-click="changePhoneState()">Add</button>
+                                </span>
+            </div>
+        </div>
+    </div>
+
+</div>

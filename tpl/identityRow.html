@@ -1,0 +1,7 @@
+<tr  ng-class="{'defaultIdentity':identity.isDefault == true}">
+    <td class="td_text td_radio"><input type="radio" value="{{identity.name}}"  ng-click="changeDefaultIdentity()" name="default_sid"></td>
+    <td class="td_text"><span><b>{{identity.name}}</b> </span>({{identity.email}})</span></td>
+    <td class="actions">
+        <button class="btn-primary" ng-click="remove_identity()">Delete</button>
+    </td>
+</tr>

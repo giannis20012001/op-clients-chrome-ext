@@ -1,0 +1,26 @@
+<!--PREFERENCES-->
+<div id="preferences_tab" class="content_tab">
+    <div class="col-xs-3"> <!-- required for floating -->
+
+        <singleclickprivacy></singleclickprivacy>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs tabs-left"><!-- 'tabs-right' for right tabs -->
+            <li ui-sref-active="active"><a ui-sref="preferences.facebook" >Facebook</a></li>
+            <li ui-sref-active="active"><a ui-sref="preferences.linkedin">Linkedin</a></li>
+            <li ui-sref-active="active"><a ui-sref="preferences.twitter">Twitter</a></li>
+            <li ui-sref-active="active"><a ui-sref="preferences.google">Google</a></li>
+            <li ui-sref-active="active"><a ui-sref="preferences.abp">Ad Blocking</a></li>
+            <li ui-sref-active="active"><a ui-sref="preferences.mobile">Mobile</a></li>
+        </ul>
+    </div>
+
+
+    <div class="col-xs-9">
+        <div class="tab-content">
+            <div ui-view>
+            </div>
+        </div>
+    </div>
+</div>
+<!--END PREFERENCES-->
