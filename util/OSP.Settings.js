@@ -1269,7 +1269,6 @@ var ospSettingsConfig = {
                 recommended:"No"
             }
         },
-
         share_edits:{
             read:{
                 name: "Sharing profile edits",
@@ -1283,6 +1282,18 @@ var ospSettingsConfig = {
                 recommended:"Do not allow your network to be notified of your profile changes"
             }
         },
+
+        /*{
+            name: "Profile viewing options",
+            url: "https://www.linkedin.com/psettings/profile-visibility",
+            jquery_selector:{
+                element:"input",
+                valueType:"radio"
+
+            }//return selected option value string
+
+        },*/
+
         suggest_you_email:{
             read:{
                 name: "Suggesting you on the connection based on your email address",
