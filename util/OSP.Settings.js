@@ -1175,6 +1175,19 @@ var ospSettingsConfig = {
         //=============================================================================================================
         //================================================Account======================================================
         //=============================================================================================================
+        control_profile_photo:{
+            read:{
+                name: "Control your profile photo and visibility.",
+                url: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                jquery_selector:{
+                    element:"#setting-profile-photo-visibility .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"Connections"
+            }
+        },
         control_third_party:{
             read:{
                 name: "Third party apps",
@@ -1323,8 +1336,6 @@ var ospSettingsConfig = {
         },
         //TODO: Add management capabilities for Blocking list. (https://www.linkedin.com/psettings/member-blocking)
         //TODO: Add management capabilities for Unfollowed list. (https://www.linkedin.com/psettings/customize-stream)
-
-
         suggest_you_email:{
             read:{
                 name: "Suggesting you on the connection based on your email address",
@@ -1338,7 +1349,6 @@ var ospSettingsConfig = {
                 recommended:"Nobody"
             }
         },
-
         suggest_you_phone:{
             read:{
                 name: "Suggesting you as a connection based on your phone number",
@@ -1352,17 +1362,32 @@ var ospSettingsConfig = {
                 recommended:"Nobody"
             }
         },
+        //TODO: Linkedin bug. Despite changing it to No it still depicts yes.
+        meet_the_team:{
+            read:{
+                name: "Control if linkedin can show your profile information on your employer’s pages",
+                url: "https://www.linkedin.com/psettings/meet-the-team",
+                jquery_selector:{
+                    element:"#setting-meet-the-team .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"Nobody"
+            }
+        },
+        //============================================
         share_data_with_third_party_applications:{
             read:{
                 name: "Sharing data with third parties applications",
                 url: "https://www.linkedin.com/psettings/data-sharing",
                 jquery_selector:{
-                    element:"input[id='option-block-applications']",
-                    valueType:"checkbox"
+                    element:"#setting-data-sharing .state",
+                    valueType:"inner"
                 }
             },
             write:{
-                recommended:"false"
+                recommended:"No"
             }
         },
         share_data_with_third_party_platforms:{
@@ -1375,7 +1400,7 @@ var ospSettingsConfig = {
                 }
             },
             write:{
-                recommended:"no"
+                recommended:"false"
             }
         },
         cookie_personalised_ads:{
@@ -1383,40 +1408,25 @@ var ospSettingsConfig = {
                 name: "Use cookies to personalize ads",
                 url: "https://www.linkedin.com/psettings/enhanced-advertising",
                 jquery_selector:{
-                    element:"input[id='option-ads-choices']",
-                    valueType:"checkbox"
-                }
-            },
-            write:{
-                recommended:"false"
-            }
-        },
-        broadcast_activity:{
-            read:{
-                name: "Allow or disallow your activity broadcasts.",
-                url: "https://www.linkedin.com/psettings/activity-broadcast",
-                jquery_selector:{
-                    element:"input[id='option-broadcast']",
-                    valueType:"checkbox"
-                }
-            },
-            write:{
-                recommended:"false"
-            }
-        },
-
-
-        control_profile_photo:{
-            read:{
-                name: "Control your profile photo and visibility.",
-                url: "https://www.linkedin.com/psettings/profile-photo-visibility",
-                jquery_selector:{
-                    element:"#setting-profile-photo-visibility .state",
+                     element:"#setting-enhanced-advertising .state",
                     valueType:"inner"
                 }
             },
             write:{
-                recommended:"Connections"
+                recommended:"No"
+            }
+        },
+        two_step_verification:{
+            read:{
+                name: "Toggle on/off two-factor authentication",
+                url: "https://www.linkedin.com/psettings/two-step-verification",
+                jquery_selector:{
+                     element:"#setting-two-step-verification .state",
+                    valueType:"inner"
+                }
+            },
+            write:{
+                recommended:"On"
             }
         },
         /*control_others_see:{
@@ -1591,7 +1601,7 @@ var ospSettingsConfig = {
                 name: "Select who can send you invitations",
                 url: "https://www.linkedin.com/psettings/invite-receive",
                 jquery_selector:{
-                    element:"li[id='setting-invite-receive'] .state",
+                    element:"#setting-invite-receive .state",
                     valueType:"inner"
                 }
             },
@@ -1600,17 +1610,17 @@ var ospSettingsConfig = {
             }
         },
         /*messages_from_members:{
-         read:{
-         name: "Select what type of member messages you'd prefer to receive",
-         url: "https://www.linkedin.com/psettings/message-preferences",
-         jquery_selector:{
-         //TODO: See if this setting is required?
-         }
-         },
-         write:{
-         recommended:undefined
-         }
-         },*/
+            read:{
+                name: "Select what type of member messages you'd prefer to receive",
+                url: "https://www.linkedin.com/psettings/message-preferences",
+                jquery_selector:{
+                    //TODO: See if this setting is required?
+                }
+            },
+            write:{
+                recommended:undefined
+            }
+        },*/
         enable_group_invitations:{
             read:{
                 name: "Choose whether you want to receive invitations to join groups",
