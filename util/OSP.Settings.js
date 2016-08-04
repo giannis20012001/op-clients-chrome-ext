@@ -11,8 +11,44 @@
  * Initially developed in the context of OPERANDO EU project www.operando.eu
  */
 
+/*
+ * Creation of random serial numbers script:
+ * "shuf -i 000000000000000-999999999999999 -n 1".
+ */
 var SN_CONSTANTS ={
     FACEBOOK:{
+        public:300645083384735,
+        everyone:300645083384735,
+        friends_of_friends:275425949243301,
+        friends_except_acquaintances:284920934947802,
+        only_me:286958161406148,
+        friends:291667064279714
+
+    },
+
+    GOOGLE:{
+        public:300645083384735,
+        everyone:300645083384735,
+        friends_of_friends:275425949243301,
+        friends_except_acquaintances:284920934947802,
+        only_me:286958161406148,
+        friends:291667064279714
+
+    },
+
+    LINKEDIN:{
+        no_one:836780953350426,
+        your_connections:721336557845391,
+        your_network:2970896077664,
+        everyone:531109157014695,
+        make_my_public_profile_visible_to_no_one: 819243232510547,
+        make_my_public_profile_visible_to_everyone: 519591394213057,
+        basics: 238801631834504,
+        picture: 587299059848712,
+
+    },
+
+    TWITTER:{
         public:300645083384735,
         everyone:300645083384735,
         friends_of_friends:275425949243301,
@@ -28,7 +64,7 @@ var ospSettingsConfig = {
 
     "facebook": {
        who_can_see_future_posts: {
-            read:{
+           read:{
                 name: "Who can see your future posts?",
                 url: "https://www.facebook.com/settings?tab=privacy",
                 availableSettings:{
@@ -1179,26 +1215,104 @@ var ospSettingsConfig = {
             read:{
                 name: "Control your profile photo and visibility.",
                 url: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                availableSettings:{
+                    No_One:{
+                        name:"No One"
+                    },
+                    Your_Connections:{
+                        name:"Your Connections"
+                    },
+                    Your_Network:{
+                        name:"Your Network"
+                    },
+
+                    Everyone:{
+                        name:"Everyone"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-profile-photo-visibility .state",
                     valueType:"inner"
                 }
             },
             write:{
-                recommended:"Connections"
+                name: "Control your profile photo and visibility.",
+                page: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                //url_template: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                availableSettings:{
+                    No_One: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.no_one
+                            }
+                        },
+                        name: "No One"
+                    },
+                    Your_Connections:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.LINKEDIN.your_connections
+                           }
+                       },
+                        name:"Your Connections"
+                    },
+                    Your_Network:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.LINKEDIN.your_network
+                           }
+                       },
+                        name:"Your Network"
+                    },
+                    Everyone:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.LINKEDIN.everyone
+                           }
+                       },
+                        name:"Everyone"
+                    }
+                },
+                data: {},
+                recommended:"Only you"
             }
         },
         control_third_party:{
             read:{
                 name: "Third party apps",
-                url: "https://www.linkedin.com/psettings/account",
+                url: "https://www.linkedin.com/psettings/third-party-applications",
                 jquery_selector:{
                     element:"li[id='setting-third-party-applications'] .state",
                     valueType:"inner"
                 }
             },
             write:{
-                recommended:"Manual review and removal of redundant apps"
+                name: "Third party apps",
+                page: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                //url_template: "https://www.linkedin.com/psettings/profile-photo-visibility",
+                data: {},
+                //Manual review and removal of redundant apps
+                recommended:"0 connected apps"
             }
         },
         manage_twitter:{
@@ -1211,19 +1325,29 @@ var ospSettingsConfig = {
                 }
             },
             write:{
+                name: "Manage your Twitter info and activity on your LinkedIn account",
+                page: "https://www.linkedin.com/psettings/account",
+                //url: "https://www.linkedin.com/psettings/account",
+                 data: {},
+                //Manual review and removal of connected twitter accounts.
                 recommended:"Not connected"
             }
         },
         manage_wechat:{
             read:{
                 name: "setting-wechat",
-                url: "https://www.linkedin.com/psettings/account",
+                url: "https://www.linkedin.com/psettings/wechat-accounts",
                 jquery_selector:{
                     element:"li[id='setting-wechat'] .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "setting-wechat",
+                page: "https://www.linkedin.com/psettings/wechat-accounts",
+                //url: "https://www.linkedin.com/psettings/wechat-accounts",
+                 data: {},
+                //Manual review and removal of connected wechat accounts.
                 recommended:"Not connected"
             }
         },
@@ -1234,12 +1358,245 @@ var ospSettingsConfig = {
             read:{
                 name: "Edit your public profile",
                 url: "https://www.linkedin.com/profile/public-profile-settings",
+                availableSettings:{
+                    Make_my_public_profile_visible_to_no_one:{
+                        name:"Make my public profile visible to no one"
+                    },
+                    Make_my_public_profile_visible_to_everyone:{
+                        name:"Make my public profile visible to everyone"
+                    },
+                    Basics:{
+                        name:"Basics"
+                    },
+
+                    Picture:{
+                        name:"Picture"
+                    },
+                    Headline:{
+                        name:"Headline"
+                    },
+                    Current_Positions:{
+                        name:"Current Positions"
+                    },
+                    Past_Positions:{
+                        name:"Past Positions"
+                    },
+                    Projects:{
+                        name:"Projects"
+                    },
+                    Skills:{
+                        name:"Skills"
+                    },
+                    Languages:{
+                        name:"Languages"
+                    },
+                    Education:{
+                        name:"Education"
+                    },
+                    Interests:{
+                        name:"Interests"
+                    },
+                    Publications:{
+                        name:"Publications"
+                    },
+                    Groups:{
+                        name:"Groups"
+                    }
+                },
                 jquery_selector:{
                     element:"input[name='visibilityLevel']",
                     valueType:"radio"
                 }
             },
             write:{
+                name: "Edit your public profile",
+                page: "https://www.linkedin.com/profile/public-profile-settings",
+                //url: "https://www.linkedin.com/profile/public-profile-settings",
+                availableSettings: {
+                    Make_my_public_profile_visible_to_no_one: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.Make_my_public_profile_visible_to_no_one
+                            }
+                        },
+                        name: "Make my public profile visible to no one"
+                    },
+                    Make_my_public_profile_visible_to_everyone: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.Make_my_public_profile_visible_to_everyone
+                            }
+                        },
+                        name: "Make my public profile visible to everyone"
+                    },
+                    Basics: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.basics
+                            }
+                        },
+                        name: "Basics"
+                    },
+                    Picture: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.picture
+                            }
+                        },
+                        name: "Picture"
+                    },
+                    Headline: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.headline
+                            }
+                        },
+                        name: "Headline"
+                    },
+                    Current_Positions: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.current_positions
+                            }
+                        },
+                        name: "Current Positions"
+                    },
+                    Past_Positions: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.past_positions
+                            }
+                        },
+                        name: "Past Positions"
+                    },
+                    Projects: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.projects
+                            }
+                        },
+                        name: "Projects"
+                    },
+                    Skills: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.skills
+                            }
+                        },
+                        name: "Skills"
+                    },
+                    Languages: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.languages
+                            }
+                        },
+                        name: "Languages"
+                    },
+                    Education: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.education
+                            }
+                        },
+                        name: "Education"
+                    },
+                    Interests: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.interests
+                            }
+                        },
+                        name: "Interests"
+                    },
+                    Basics: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.basics
+                            }
+                        },
+                        name: "Basics"
+                    },
+                    Basics: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.basics
+                            }
+                        },
+                        name: "Basics"
+                    }
+                },
+                data: {},
                 recommended:"off"
             }
         },
