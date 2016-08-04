@@ -45,6 +45,15 @@ var SN_CONSTANTS ={
         make_my_public_profile_visible_to_everyone: 519591394213057,
         basics: 238801631834504,
         picture: 587299059848712,
+        headline: 821995173725199,
+        current_positions: 625720825657230,
+        past_positions: 979967691138134,
+        projects: 637873839297447,
+        skills: 775602587830170,
+        languages: 514514129962576,
+        education: 386390979258412,
+        publications: 800087945809184,
+        groups: 794568533196227
 
     },
 
@@ -1569,7 +1578,7 @@ var ospSettingsConfig = {
                         },
                         name: "Interests"
                     },
-                    Basics: {
+                    Publications: {
                         params: {
                             privacy_lnid: {
                                 placeholder: "OPERANDO_PRIVACY_LNID",
@@ -1577,12 +1586,12 @@ var ospSettingsConfig = {
                             },
                             post_param: {
                                 placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.basics
+                                value: SN_CONSTANTS.LINKEDIN.publications
                             }
                         },
-                        name: "Basics"
+                        name: "Publications"
                     },
-                    Basics: {
+                    Groups: {
                         params: {
                             privacy_lnid: {
                                 placeholder: "OPERANDO_PRIVACY_LNID",
@@ -1590,10 +1599,10 @@ var ospSettingsConfig = {
                             },
                             post_param: {
                                 placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.basics
+                                value: SN_CONSTANTS.LINKEDIN.groups
                             }
                         },
-                        name: "Basics"
+                        name: "Groups"
                     }
                 },
                 data: {},
