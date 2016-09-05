@@ -56,7 +56,10 @@ var SN_CONSTANTS ={
         publications: 800087945809184,
         groups: 794568533196227,
         yes: 361117178629177,
-        no: 8429185262324
+        no: 8429185262324,
+        full_profile: 35290152094234,
+        characteristics: 524717914036416,
+        private_mode: 589120893741529
 
     },
 
@@ -1064,7 +1067,7 @@ var ospSettingsConfig = {
 
     },
 
-    //TODO: Google has no been changed. Decision on what variables to showcase, must be made.
+    //TODO: Google has not been changed. Decision on what variables to showcase, must be made.
     "google": {
         keep_app_activity:{
             read:{
@@ -1307,7 +1310,7 @@ var ospSettingsConfig = {
                     }
                 },
                 data: {},
-                recommended:"Only you"
+                recommended:"No One"
             }
         },
         control_third_party:{
@@ -1434,7 +1437,7 @@ var ospSettingsConfig = {
                             },
                             post_param: {
                                 placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.Make_my_public_profile_visible_to_no_one
+                                value: SN_CONSTANTS.LINKEDIN.make_my_public_profile_visible_to_no_one
                             }
                         },
                         name: "Make my public profile visible to no one"
@@ -1447,7 +1450,7 @@ var ospSettingsConfig = {
                             },
                             post_param: {
                                 placeholder: "OPERANDO_POST_PARAM",
-                                value: SN_CONSTANTS.LINKEDIN.Make_my_public_profile_visible_to_everyone
+                                value: SN_CONSTANTS.LINKEDIN.make_my_public_profile_visible_to_everyone
                             }
                         },
                         name: "Make my public profile visible to everyone"
@@ -1723,12 +1726,52 @@ var ospSettingsConfig = {
             read:{
                 name: "Control the feature \"Viewers of this profile also viewed\"",
                 url: "https://www.linkedin.com/psettings/browse-map",
+                availableSettings:{
+                    Yes:{
+                        name:"Yes"
+                    },
+                    No:{
+                        name:"No"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-browse-map .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "Control the feature \"Viewers of this profile also viewed\"",
+                page: "https://www.linkedin.com/psettings/browse-map",
+                //url: "https://www.linkedin.com/psettings/browse-map",
+                availableSettings:{
+                    Yes: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.yes
+                            }
+                        },
+                        name: "Yes"
+                    },
+                    No:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.no
+                           }
+                       },
+                        name:"No"
+                    }
+                },
+                data: {},
                 recommended:"No"
             }
         },
@@ -1736,12 +1779,52 @@ var ospSettingsConfig = {
             read:{
                 name: "Sharing profile edits",
                 url: "https://www.linkedin.com/psettings/activity-broadcast",
+                availableSettings:{
+                    Yes:{
+                        name:"Yes"
+                    },
+                    No:{
+                        name:"No"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-activity-broadcast .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "Sharing profile edits",
+                page: "https://www.linkedin.com/psettings/activity-broadcast",
+                //url: "https://www.linkedin.com/psettings/activity-broadcast",
+                availableSettings:{
+                    Yes: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.yes
+                            }
+                        },
+                        name: "Yes"
+                    },
+                    No:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.no
+                           }
+                       },
+                        name:"No"
+                    }
+                },
+                data: {},
                 recommended:"No"
             }
         },
@@ -1749,12 +1832,68 @@ var ospSettingsConfig = {
             read:{
                 name: "Control what others see when you have viewed their profile",
                 url: "https://www.linkedin.com/psettings/profile-visibility",
+                availableSettings:{
+                    Full_profile:{
+                        name:"Full profile"
+                    },
+                    Characteristics:{
+                        name:"Characteristics"
+                    },
+                    Private_mode:{
+                        name:"Private mode"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-profile-visibility .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "Control what others see when you have viewed their profile",
+                page: "https://www.linkedin.com/psettings/profile-visibility",
+                //url: "https://www.linkedin.com/psettings/profile-visibility",
+                availableSettings:{
+                    Full_profile: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.full_profile
+                            }
+                        },
+                        name: "Full profile"
+                    },
+                    Characteristics:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.characteristics
+                           }
+                       },
+                        name:"Characteristics"
+                    },
+                    Private_mode:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.private_mode
+                           }
+                       },
+                        name:"Private mode"
+                    }
+                },
+                data: {},
                 recommended:"Private mode"
             }
         },
