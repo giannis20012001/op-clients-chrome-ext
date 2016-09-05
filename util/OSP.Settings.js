@@ -53,6 +53,7 @@ var SN_CONSTANTS ={
         skills: 775602587830170,
         languages: 514514129962576,
         education: 386390979258412,
+        interests: 111883819247020,
         publications: 800087945809184,
         groups: 794568533196227,
         yes: 361117178629177,
@@ -1894,7 +1895,7 @@ var ospSettingsConfig = {
                     }
                 },
                 data: {},
-                recommended:"Private mode"
+                recommended:"Private_mode"
             }
         },
         share_you_news:{
