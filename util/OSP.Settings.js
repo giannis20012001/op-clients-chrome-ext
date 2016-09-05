@@ -38,6 +38,7 @@ var SN_CONSTANTS ={
 
     LINKEDIN:{
         no_one:836780953350426,
+        only_you: 684875534556743,
         your_connections:721336557845391,
         your_network:2970896077664,
         everyone:531109157014695,
@@ -53,7 +54,9 @@ var SN_CONSTANTS ={
         languages: 514514129962576,
         education: 386390979258412,
         publications: 800087945809184,
-        groups: 794568533196227
+        groups: 794568533196227,
+        yes: 361117178629177,
+        no: 8429185262324
 
     },
 
@@ -1613,12 +1616,52 @@ var ospSettingsConfig = {
             read:{
                 name: "Select who can see your list of connections.",
                 url: "https://www.linkedin.com/psettings/connections-visibility",
+                availableSettings:{
+                    Only_you:{
+                        name:"Only you"
+                    },
+                    Your_Connections:{
+                        name:"Your Connections"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-connections-visibility .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "Select who can see your list of connections.",
+                page: "https://www.linkedin.com/psettings/connections-visibility",
+                //url: "https://www.linkedin.com/psettings/connections-visibility",
+                availableSettings:{
+                    Only_you: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.only_you
+                            }
+                        },
+                        name: "Only you"
+                    },
+                    Your_Connections:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.your_connections
+                           }
+                       },
+                        name:"Your Connections"
+                    }
+                },
+                data: {},
                 recommended:"Only you"
             }
         },
@@ -1626,12 +1669,52 @@ var ospSettingsConfig = {
             read:{
                 name: "Control showing “How You Rank”",
                 url: "https://www.linkedin.com/psettings/how-you-rank",
+                availableSettings:{
+                    Yes:{
+                        name:"Yes"
+                    },
+                    No:{
+                        name:"No"
+                    }
+                },
                 jquery_selector:{
                     element:"#setting-how-you-rank .state",
                     valueType:"inner"
                 }
             },
             write:{
+                name: "Control showing “How You Rank”",
+                page: "https://www.linkedin.com/psettings/how-you-rank",
+                //url: "https://www.linkedin.com/psettings/how-you-rank",
+                availableSettings:{
+                    Yes: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_LNID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.LINKEDIN.yes
+                            }
+                        },
+                        name: "Yes"
+                    },
+                    No:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_LNID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.FACEBOOK.no
+                           }
+                       },
+                        name:"No"
+                    }
+                },
+                data: {},
                 recommended:"No"
             }
         },
