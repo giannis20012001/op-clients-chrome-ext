@@ -71,7 +71,6 @@ var SN_CONSTANTS ={
     }
 };
 
-
 var ospSettingsConfig = {
 
     "facebook": {
@@ -1065,6 +1064,7 @@ var ospSettingsConfig = {
 
     },
 
+    //TODO: Google has no been changed. Decision on what variables to showcase, must be made.
     "google": {
         keep_app_activity:{
             read:{
@@ -1219,6 +1219,7 @@ var ospSettingsConfig = {
         }
     },
 
+    //TODO: Create or link OPERANDO_PRIVACY_LNID.
     "linkedin": {
         //=============================================================================================================
         //================================================Account======================================================
