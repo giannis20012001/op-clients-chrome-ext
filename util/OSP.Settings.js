@@ -75,7 +75,9 @@ var SN_CONSTANTS ={
         friends_of_friends:275425949243301,
         friends_except_acquaintances:284920934947802,
         only_me:286958161406148,
-        friends:291667064279714
+        friends:291667064279714,
+        checked: 422044641835192,
+        unchecked: 238180931672710
 
     }
 };
@@ -1665,7 +1667,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.your_connections
+                               value: SN_CONSTANTS.LINKEDIN.your_connections
                            }
                        },
                         name:"Your Connections"
@@ -1718,7 +1720,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -1771,7 +1773,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -1824,7 +1826,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -1880,7 +1882,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.characteristics
+                               value: SN_CONSTANTS.LINKEDIN.characteristics
                            }
                        },
                         name:"Characteristics"
@@ -1893,7 +1895,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.private_mode
+                               value: SN_CONSTANTS.LINKEDIN.private_mode
                            }
                        },
                         name:"Private mode"
@@ -1946,7 +1948,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -2193,7 +2195,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -2247,7 +2249,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -2300,7 +2302,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -2353,7 +2355,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -2406,7 +2408,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2506,7 +2508,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2559,7 +2561,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2614,7 +2616,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2667,7 +2669,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2720,7 +2722,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2773,7 +2775,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2826,7 +2828,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2881,7 +2883,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2936,7 +2938,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.off
+                               value: SN_CONSTANTS.LINKEDIN.off
                            }
                        },
                         name:"Off"
@@ -2992,7 +2994,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.email_and_imported_contacts
+                               value: SN_CONSTANTS.LINKEDIN.email_and_imported_contacts
                            }
                        },
                         name:"Email and Imported contacts"
@@ -3005,7 +3007,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.imported_contacts
+                               value: SN_CONSTANTS.LINKEDIN.imported_contacts
                            }
                        },
                         name:"Imported contacts"
@@ -3070,7 +3072,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -3123,7 +3125,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -3176,7 +3178,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -3229,7 +3231,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -3282,7 +3284,7 @@ var ospSettingsConfig = {
                            },
                            post_param: {
                                placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.FACEBOOK.no
+                               value: SN_CONSTANTS.LINKEDIN.no
                            }
                        },
                         name:"No"
@@ -3299,26 +3301,106 @@ var ospSettingsConfig = {
             read:{
                 name: "Allow/disallow Login verification (a phone must be added first).",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='login_verification']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Allow"
+                name: "Allow/disallow Login verification (a phone must be added first).",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"true"
             }
         },
         allow_password_reset:{
             read:{
                 name: "Allow/disallow further personal information for Password reset.",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='user_no_username_only_password_reset']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Allow"
+                name: "Allow/disallow further personal information for Password reset.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_lnid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_lnid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"true"
             }
         },
         allow_login_with_code_1:{
