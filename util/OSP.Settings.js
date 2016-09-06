@@ -507,7 +507,6 @@ var ospSettingsConfig = {
                 recommended:"enabled"
             }
         },
-
         timeline_posts_tags:{
           read:{
               name: "Who can see posts you've been tagged in on your timeline?",
@@ -610,7 +609,6 @@ var ospSettingsConfig = {
                 recommended:"only_me"
             }
         },
-
         timeline_other_posts:{
             read:{
                 name: "Who can see what others post on your timeline?",
@@ -714,7 +712,6 @@ var ospSettingsConfig = {
             }
 
         },
-
         photo_tags_audience:{
             read:{
                 name: "When you are tagged in a post, whom do you want to add to the audience if they are not already in it?",
@@ -3321,7 +3318,7 @@ var ospSettingsConfig = {
                 availableSettings:{
                     Checked: {
                         params: {
-                            privacy_lnid: {
+                            privacy_twid: {
                                 placeholder: "OPERANDO_PRIVACY_TWID",
                                 value: 0
                             },
@@ -3334,15 +3331,15 @@ var ospSettingsConfig = {
                     },
                     UnChecked:{
                         params: {
-                           privacy_lnid: {
-                               placeholder: "OPERANDO_PRIVACY_TWID",
-                               value: 0
-                           },
-                           post_param: {
-                               placeholder: "OPERANDO_POST_PARAM",
-                               value: SN_CONSTANTS.TWITTER.unchecked
-                           }
-                       },
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.unchecked
+                            }
+                        },
                         name:"Unchecked"
                     }
                 },
@@ -3374,7 +3371,7 @@ var ospSettingsConfig = {
                 availableSettings:{
                     Checked: {
                         params: {
-                            privacy_lnid: {
+                            privacy_twid: {
                                 placeholder: "OPERANDO_PRIVACY_TWID",
                                 value: 0
                             },
@@ -3387,7 +3384,166 @@ var ospSettingsConfig = {
                     },
                     UnChecked:{
                         params: {
-                           privacy_lnid: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.unchecked
+                            }
+                        },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"true"
+            }
+        },
+        allow_login_with_code_1:{
+            read:{
+                name: "Allow/disallow login to your account with either a password or login code.",
+                url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
+                jquery_selector:{
+                    element:"input[id='one_factor_optout_settings_off']",
+                    valueType:"checkbox"
+                }
+            },
+            write:{
+                name: "Allow/disallow login to your account with either a password or login code.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.unchecked
+                            }
+                        },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"true"
+            }
+        },
+        allow_login_with_code_2:{
+            read:{
+                name: "Allow/disallow to always require a password to log to your account.",
+                url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
+                jquery_selector:{
+                    element:"input[id='one_factor_optout_settings_on']",
+                    valueType:"checkbox"
+                }
+            },
+            write:{
+                name: "Allow/disallow to always require a password to log to your account.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.unchecked
+                            }
+                        },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
+            }
+        },
+        allow_photo_tag:{
+            read:{
+                name: "Allow/disallow anyone to tag you in photos.",
+                url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
+                jquery_selector: {
+                    element: "input[name='user[allow_media_tagging]']",
+                    valueType: "radio"
+                },
+            },
+            write:{
+                name: "Allow/disallow anyone to tag you in photos.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
                                placeholder: "OPERANDO_PRIVACY_TWID",
                                value: 0
                            },
@@ -3400,125 +3556,288 @@ var ospSettingsConfig = {
                     }
                 },
                 data: {},
-                recommended:"true"
+                recommended:"false"
             }
         },
-        allow_login_with_code_1:{
-            read:{
-                name: "Allow/disallow login to your account with either a password or login code.",
-                url: "https://twitter.com/settings/security",
-                jquery_selector:{
-                    element:"input[id='one_factor_optout_settings_off']",
-                    valueType:"checkbox"
-                }
-            },
-            write:{
-                recommended:"Disallow"
-            }
-        },
-        allow_login_with_code_2:{
-            read:{
-                name: "Allow/disallow to always require a password to log to your account.",
-                url: "https://twitter.com/settings/security",
-                jquery_selector:{
-                    element:"input[id='one_factor_optout_settings_on']",
-                    valueType:"checkbox"
-                }
-            },
-            write:{
-                recommended:"Allow"
-            }
-        },
-        /*allow_photo_tag:{
-         read:{
-         name: "Allow/disallow anyone to tag you in photos.",
-         url: "https://twitter.com/settings/security",
-         jquery_selector:{
-         element:"input[name='user[allow_media_tagging]'",
-         valueType:"radio"
-         //TODO: Error, must fix jquery to correctly extract the wanted result.
-         }
-         },
-         write:{
-         recommended:"Disallow"
-         }
-         },*/
         tweet_privacy:{
             read:{
                 name: "Allow/disallow only those you approve to receive your Tweets.",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='user_protected']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Allow"
+                name: "Allow/disallow only those you approve to receive your Tweets.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         allow_location:{
             read:{
                 name: "Enable Twitter to add your location to your tweets.",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='user_geo_enabled']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disabled"
+                name: "Enable Twitter to add your location to your tweets.",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
+        //TODO: Create "Delete location information" action for allow_location action to be complete.
         /*delete_locations:{
-         read:{
-         name: "Delete all location information from past Tweets.",
-         url: "https://twitter.com/settings/security",
-         jquery_selector:{
-         //TODO: angular press button method.
-         }
-         },
-         write:{
-         recommended:"Yes"
-         }
-         },*/
+            read:{
+                name: "Delete all location information from past Tweets.",
+                url: "https://twitter.com/settings/security",
+                jquery_selector:{
+                    //TODO: angular press button method.
+                }
+            },
+            write:{
+                recommended:"Yes"
+            }
+        },*/
         allow_email_search:{
             read:{
                 name: "Allow/disallow others find you by your email address",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='user_discoverable_by_email']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow others find you by your email address",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         allow_phone_search:{
             read:{
                 name: "Allow/disallow others find you by your phone number",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='user_mobile_discoverable']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow others find you by your phone number",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
+        //TODO: Create "Manage your contacts" action for allow_location action to be complete.
         allow_promoted_content:{
             read:{
                 name: "Allow/disallow Twitter to display ads about things you've already shown " +
                 "interest in (aka “promoted content”",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='allow_ads_personalization']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow Twitter to display ads about things you've already shown " +
+                "interest in (aka “promoted content”",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         //=============================================================================================================
@@ -3530,41 +3849,164 @@ var ospSettingsConfig = {
                 name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
                 "the teams feature in TweetDeck (1 option).",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='allow_contributor_request_all']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
+                "the teams feature in TweetDeck (1 option).",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         allow_tweetdeck_2:{
             read:{
                 name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck (1 option).",
+                "the teams feature in TweetDeck (2 option).",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='allow_contributor_request_following']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
+                "the teams feature in TweetDeck (2 option).",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         allow_tweetdeck_3:{
             read:{
                 name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
-                "the teams feature in TweetDeck (1 option).",
+                "the teams feature in TweetDeck (3 option).",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
-                    element:"input[id='allow_contributor_request_none']",
+                    element:"input[id='allow_contributor_request_following']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Allow"
+                name: "Allow/disallow organizations to invite anyone to tweet from their account using " +
+                "the teams feature in TweetDeck (3 option).",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         },
         //=============================================================================================================
@@ -3574,63 +4016,103 @@ var ospSettingsConfig = {
             read:{
                 name: "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
                 url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked:{
+                        name:"Checked"
+                    },
+                    UnChecked:{
+                        name:"Unchecked"
+                    }
+                },
                 jquery_selector:{
                     element:"input[id='allow_dms_from_anyone']",
                     valueType:"checkbox"
                 }
             },
             write:{
-                recommended:"Disallow"
+                name: "Allow/disallow any Twitter user to send you a direct message even if you do not follow them",
+                page: "https://twitter.com/settings/security",
+                //url: "https://twitter.com/settings/security",
+                availableSettings:{
+                    Checked: {
+                        params: {
+                            privacy_twid: {
+                                placeholder: "OPERANDO_PRIVACY_TWID",
+                                value: 0
+                            },
+                            post_param: {
+                                placeholder: "OPERANDO_POST_PARAM",
+                                value: SN_CONSTANTS.TWITTER.checked
+                            }
+                        },
+                        name: "Checked"
+                    },
+                    UnChecked:{
+                        params: {
+                           privacy_twid: {
+                               placeholder: "OPERANDO_PRIVACY_TWID",
+                               value: 0
+                           },
+                           post_param: {
+                               placeholder: "OPERANDO_POST_PARAM",
+                               value: SN_CONSTANTS.TWITTER.unchecked
+                           }
+                       },
+                        name:"Unchecked"
+                    }
+                },
+                data: {},
+                recommended:"false"
             }
         }
         /*manage_contacts:{
-         read:{
-         name: "Manage contacts you have uploaded from your address book in twitter",
-         url: "https://twitter.com/settings/security",
-         jquery_selector:{
-         //TODO: interesting setting. Suggestion to include it.
-         }
-         },
-         write:{
-         recommended:"Delete them all"
-         }
-         },*/
+            read:{
+                name: "Manage contacts you have uploaded from your address book in twitter",
+                url: "https://twitter.com/settings/security",
+                jquery_selector:{
+                    //TODO: interesting setting. Suggestion to include it.
+                }
+            },
+            write:{
+                recommended:"Delete them all"
+            }
+        },*/
         /*allow_tracking:{
-         read:{
-         name: "Allow/disallow Twitter to tailor suggestions in your timeline (such as who to follow) based on your recent website visits",
-         url: "",
-         jquery_selector:{
-         //TODO: N/A feature in my settings. Must see if this is available to others.
-         }
-         },
-         write:{
-         recommended:"Disallow"
-         }
-         },*/
+            read:{
+                name: "Allow/disallow Twitter to tailor suggestions in your timeline (such as who to follow) based on your recent website visits",
+                url: "",
+                jquery_selector:{
+                    //TODO: N/A feature in my settings. Must see if this is available to others.
+                }
+            },
+            write:{
+                recommended:"Disallow"
+            }
+        },*/
         /*allow_follow:{
-         read:{
-         name: "Allow anybody to follow yous",
-         url: "",
-         jquery_selector:{
-         //TODO: N/A feature in my settings. Must see if this is available to others.
-         }
-         },
-         write:{
-         recommended:"Allow"
-         }
-         },*/
+            read:{
+                name: "Allow anybody to follow yous",
+                url: "",
+                jquery_selector:{
+                    //TODO: N/A feature in my settings. Must see if this is available to others.
+                }
+            },
+            write:{
+                recommended:"Allow"
+            }
+        },*/
         /*add_phone:{
-         read:{
-         name: "Add/do not add your phone number to Twitter",
-         url: "https://twitter.com/settings/add_phone",
-         jquery_selector:{
-         //TODO: N/A feature in my settings. Must see if this is available to others.
-         }
-         },
-         write:{
-         recommended:"Do not add"
-         }
-         }*/
+            read:{
+                name: "Add/do not add your phone number to Twitter",
+                url: "https://twitter.com/settings/add_phone",
+                jquery_selector:{
+                    //TODO: N/A feature in my settings. Must see if this is available to others.
+                }
+            },
+            write:{
+                recommended:"Do not add"
+            }
+        }*/
     }
 }
 
